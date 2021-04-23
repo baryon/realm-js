@@ -44,8 +44,8 @@ if (options.arch) {
     architectures = [options.arch];
 }
 
-if (!"ANDROID_NDK" in process.env) {
-    throw Error("ANDROID_NDK environment variable not set");
+if (!"ANDROID_NDK" in process.env || !"ANDROID_NDK_HOME" in process.env) {
+    throw Error("ANDROID_NDK / ANDROID_NDK_HOME environment variable not set");
 }
 const ndkPath = process.env["ANDROID_NDK"] || process.env["ANDROID_NDK_HOME"];
 
